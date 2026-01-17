@@ -16,7 +16,7 @@ SwiftUI source for the Hot Tub maintenance log app, including an Xcode project.
 ## Preview without macOS
 Use the CI workflow to build a simulator app and preview it in a browser.
 
-1. Go to GitHub Actions and run the `iOS Simulator Build` workflow.
+1. Push to the `preview` branch (or run the `iOS Simulator Build` workflow manually).
 2. Download the `HotTubLog-simulator-app` artifact (a zipped `.app` bundle).
 3. Upload it to Appetize: <https://appetize.io/upload>
 
