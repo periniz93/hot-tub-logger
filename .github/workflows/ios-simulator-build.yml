@@ -39,3 +39,14 @@ jobs:
         with:
           name: HotTubLog-simulator-app
           path: HotTubLog-simulator.app.zip
+
+      - name: Upload to Appetize (optional)
+        if: ${{ secrets.APPETIZE_API_TOKEN != '' && secrets.APPETIZE_APP_PUBLIC_KEY != '' }}
+        env:
+          APPETIZE_API_TOKEN: ${{ secrets.APPETIZE_API_TOKEN }}
+          APPETIZE_APP_PUBLIC_KEY: ${{ secrets.APPETIZE_APP_PUBLIC_KEY }}
+        run: |
+          curl -X POST "https://api.appetize.io/v1/apps/${APPETIZE_APP_PUBLIC_KEY}" \
+            -H "X-API-KEY: ${APPETIZE_API_TOKEN}" \
+            -F "file=@HotTubLog-simulator.app.zip" \
+            -F "platform=ios"
