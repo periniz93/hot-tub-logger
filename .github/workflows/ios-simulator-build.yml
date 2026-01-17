@@ -1,0 +1,41 @@
+name: iOS Simulator Build
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  build-simulator:
+    runs-on: macos-14
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build simulator app
+        run: |
+          xcodebuild \
+            -project HotTubLog.xcodeproj \
+            -scheme HotTubLog \
+            -configuration Debug \
+            -sdk iphonesimulator \
+            -destination 'platform=iOS Simulator,name=iPhone 15' \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Package .app
+        run: |
+          APP_PATH="build/Build/Products/Debug-iphonesimulator/HotTubLog.app"
+          if [ ! -d "$APP_PATH" ]; then
+            echo "App bundle not found at $APP_PATH"
+            exit 1
+          fi
+          ditto -c -k --sequesterRsrc --keepParent "$APP_PATH" HotTubLog-simulator.app.zip
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: HotTubLog-simulator-app
+          path: HotTubLog-simulator.app.zip
