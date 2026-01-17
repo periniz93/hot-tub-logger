@@ -113,14 +113,14 @@ struct AddEntryView: View {
 
     private var photoField: some View {
         Section("Photo") {
-            if let photoImage {
-                Image(uiImage: photoImage)
+            if let image = photoImage {
+                Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
                     .frame(maxHeight: 220)
 
                 Button("Remove Photo") {
-                    photoImage = nil
+                    self.photoImage = nil
                     selectedPhotoItem = nil
                     photoUpdated = true
                 }
