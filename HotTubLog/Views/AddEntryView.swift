@@ -7,6 +7,8 @@ struct AddEntryView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \EntryType.name) private var entryTypes: [EntryType]
 
+    let entryToEdit: LogEntry?
+
     @State private var selectedTypeId: UUID?
     @State private var timestamp = Date()
     @State private var notes = ""
@@ -14,6 +16,12 @@ struct AddEntryView: View {
 
     @State private var selectedPhotoItem: PhotosPickerItem?
     @State private var photoImage: UIImage?
+    @State private var photoUpdated = false
+    @State private var suppressTypeReset = false
+
+    init(entryToEdit: LogEntry? = nil) {
+        self.entryToEdit = entryToEdit
+    }
 
     var body: some View {
         NavigationStack {
@@ -47,25 +55,26 @@ struct AddEntryView: View {
                     }
                 }
             }
-            .navigationTitle("New Entry")
+            .navigationTitle(entryToEdit == nil ? "New Entry" : "Edit Entry")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") { saveEntry() }
+                    Button(entryToEdit == nil ? "Save" : "Update") { saveEntry() }
                 }
             }
             .onAppear {
+                if let entryToEdit {
+                    populate(from: entryToEdit)
+                }
                 if selectedTypeId == nil {
                     selectedTypeId = entryTypes.first?.id
                 }
             }
             .onChange(of: selectedTypeId) { _ in
+                guard !suppressTypeReset else { return }
                 measurementInputs.removeAll()
-                notes = ""
-                selectedPhotoItem = nil
-                photoImage = nil
             }
             .onChange(of: selectedPhotoItem) { newItem in
                 Task {
@@ -74,6 +83,7 @@ struct AddEntryView: View {
                         return
                     }
                     photoImage = image
+                    photoUpdated = true
                 }
             }
         }
@@ -108,6 +118,12 @@ struct AddEntryView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(maxHeight: 220)
+
+                Button("Remove Photo") {
+                    photoImage = nil
+                    selectedPhotoItem = nil
+                    photoUpdated = true
+                }
             }
 
             PhotosPicker(selection: $selectedPhotoItem, matching: .images) {
@@ -123,20 +139,67 @@ struct AddEntryView: View {
         )
     }
 
+    private func populate(from entry: LogEntry) {
+        suppressTypeReset = true
+        selectedTypeId = entry.entryType?.id
+        timestamp = entry.timestamp
+        notes = entry.notes
+        measurementInputs = [:]
+        for measurement in entry.measurements {
+            let fieldKind = FieldKind(rawValue: measurement.kind.rawValue) ?? .ph
+            measurementInputs[fieldKind] = String(format: "%.2f", measurement.value)
+        }
+
+        if let filename = entry.photoFilename {
+            photoImage = PhotoStore.load(filename: filename)
+        }
+        photoUpdated = false
+        suppressTypeReset = false
+    }
+
     private func saveEntry() {
         guard let entryType = selectedEntryType else { return }
 
         let trimmedNotes = notes.trimmingCharacters(in: .whitespacesAndNewlines)
-        let entry = LogEntry(
-            timestamp: timestamp,
-            notes: trimmedNotes,
-            entryType: entryType
-        )
 
-        if let photoImage, let filename = try? PhotoStore.save(image: photoImage) {
-            entry.photoFilename = filename
+        if let entryToEdit {
+            entryToEdit.timestamp = timestamp
+            entryToEdit.notes = trimmedNotes
+            entryToEdit.entryType = entryType
+
+            if photoUpdated {
+                if let photoImage, let filename = try? PhotoStore.save(image: photoImage) {
+                    entryToEdit.photoFilename = filename
+                } else {
+                    entryToEdit.photoFilename = nil
+                }
+            }
+
+            for measurement in entryToEdit.measurements {
+                modelContext.delete(measurement)
+            }
+            entryToEdit.measurements.removeAll()
+            appendMeasurements(to: entryToEdit)
+        } else {
+            let entry = LogEntry(
+                timestamp: timestamp,
+                notes: trimmedNotes,
+                entryType: entryType
+            )
+
+            if let photoImage, let filename = try? PhotoStore.save(image: photoImage) {
+                entry.photoFilename = filename
+            }
+
+            appendMeasurements(to: entry)
+            modelContext.insert(entry)
         }
 
+        try? modelContext.save()
+        dismiss()
+    }
+
+    private func appendMeasurements(to entry: LogEntry) {
         for kind in MeasurementKind.allCases {
             let fieldKind = FieldKind(rawValue: kind.rawValue) ?? .ph
             guard let input = measurementInputs[fieldKind],
@@ -146,9 +209,5 @@ struct AddEntryView: View {
             let measurement = Measurement(kind: kind, value: value, unit: kind.defaultUnit, logEntry: entry)
             entry.measurements.append(measurement)
         }
-
-        modelContext.insert(entry)
-        try? modelContext.save()
-        dismiss()
     }
 }
