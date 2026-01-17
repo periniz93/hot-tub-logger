@@ -9,6 +9,7 @@ SwiftUI source for the Hot Tub maintenance log app, including an Xcode project.
 
 ## Notes
 - Xcode only runs on macOS; Windows/WSL can edit the code but cannot build or run the app.
+- Minimum iOS version: 18.2.
 - Data is local-only using SwiftData.
 - Photos are stored in the app's Documents directory.
 - Reminders use local notifications; enable permissions when prompted.
@@ -19,6 +20,7 @@ Use the CI workflow to build a simulator app and preview it in a browser.
 1. Push to the `preview` branch (or run the `iOS Simulator Build` workflow manually).
 2. Download the `HotTubLog-simulator-app` artifact (a zipped `.app` bundle).
 3. Upload it to Appetize: <https://appetize.io/upload>
+4. Select an iOS 18.2 (or newer) device in Appetize.
 
 ### Optional: auto-upload to Appetize from CI
 Add these repo secrets to enable automatic uploads after each CI build:
