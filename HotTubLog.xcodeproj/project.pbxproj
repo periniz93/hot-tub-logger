@@ -1,0 +1,378 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		001AC751D0D44C72A640E9FF /* Extensions/Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E7A08C61154CC5ACF6DCA3 /* Extensions/Color+Hex.swift */; };
+		7E6DF9EC851C4C7498721EE3 /* HotTubLogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E183D5BEE94B419CB414EC72 /* HotTubLogApp.swift */; };
+		AE4FBFD488844E1AB57B31F9 /* Models/EntryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331159B4786444CAAB567C6C /* Models/EntryType.swift */; };
+		33F99D7B0B234AE5B0286570 /* Models/Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE909F32FCE42E7AB6A7CF1 /* Models/Enums.swift */; };
+		0C5D4856ED0640F2BEDEA6B5 /* Models/FieldConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658164FD18B74D62A091985F /* Models/FieldConfig.swift */; };
+		ECABB0B57B7F477B8C66FF99 /* Models/LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05241C2C02D647829D362FC2 /* Models/LogEntry.swift */; };
+		3BB0D88191B84B838DDE8BA1 /* Models/Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4642F2B5B0C44F5496F7000A /* Models/Measurement.swift */; };
+		BAF59C12E56F4E0AB6B62534 /* Models/Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7C89E288D94D54BDA41D73 /* Models/Reminder.swift */; };
+		7C041E66882949DDB60B427F /* Services/ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1A6892157544F68041CEF2 /* Services/ExportService.swift */; };
+		85BB3EFB77114D6697FD87AF /* Services/LLMPromptBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FCD0C45A7E435C91AFA86F /* Services/LLMPromptBuilder.swift */; };
+		9265B9F1EE764746B02BF6AC /* Services/NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68125050F1840BD91C8F88D /* Services/NotificationScheduler.swift */; };
+		6F7175F1C8864FDD94653B8F /* Services/PhotoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD2291A75D0448DAC3D7A77 /* Services/PhotoStore.swift */; };
+		1AC3FF703ACD4D608D791284 /* Services/SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D67242CC4234BA1A723D10F /* Services/SeedData.swift */; };
+		3DEBF840E8F5460381077095 /* Views/AddEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC4A5FC803643C7870E056C /* Views/AddEntryView.swift */; };
+		B1F4943063FA4376890D554C /* Views/Components/EntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBF6777547647319C28863C /* Views/Components/EntryRowView.swift */; };
+		5DEF877CFD64483D9529E688 /* Views/Components/EntryTypeChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B83831062C4349BF464F70 /* Views/Components/EntryTypeChip.swift */; };
+		18948D14DB764FF9A90D8FFE /* Views/Components/FieldConfigRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92CEFA5708E427AB74294D3 /* Views/Components/FieldConfigRowView.swift */; };
+		38FC54B463544C75BE157B6D /* Views/Components/ReminderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE6FBB4FBDF4EB487423FF4 /* Views/Components/ReminderRowView.swift */; };
+		5F767CDDDA874D3B9E490E82 /* Views/ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E951FFCD314E3ABB0AEE10 /* Views/ContentView.swift */; };
+		95C05376A8F94EB6A4655F85 /* Views/EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C2A6A1EDF4C0A80B6D51E /* Views/EntryDetailView.swift */; };
+		62B03BB541834EFA97F02E96 /* Views/ExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0B021692574CDDB0D2088A /* Views/ExportView.swift */; };
+		0D65F35A8298427BB4B73EB9 /* Views/FieldConfigDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DEFD2CCB154031A15CF58C /* Views/FieldConfigDetailView.swift */; };
+		77876D78BA30403880278FB6 /* Views/FieldConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE965737A5459890C94EB1 /* Views/FieldConfigView.swift */; };
+		D42E204E22B44DA3B7084363 /* Views/LogListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0AB8B324734309AA9F5A57 /* Views/LogListView.swift */; };
+		131667A71D3146819D8FE72D /* Views/PromptSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B071B5D1E7E48D38D558A79 /* Views/PromptSettingsView.swift */; };
+		9195D561DC8C4A7B8D345315 /* Views/RemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBE9FF751B44541BCEC11E6 /* Views/RemindersView.swift */; };
+		15CB4A409F0A4EB8BDEEA2F8 /* Views/SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632535A26C724D2A88E756FC /* Views/SettingsView.swift */; };
+		1BFD9979C00349A089AF84C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4CA08A6495B421FBBAAA7CF /* Assets.xcassets */; };
+		AAFE9777FA594496B7C712E3 /* Preview Content/Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94A34C1B97584CA6A7B376B6 /* Preview Content/Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		60E7A08C61154CC5ACF6DCA3 /* Extensions/Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions/Color+Hex.swift"; sourceTree = "<group>"; };
+		E183D5BEE94B419CB414EC72 /* HotTubLogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HotTubLogApp.swift"; sourceTree = "<group>"; };
+		331159B4786444CAAB567C6C /* Models/EntryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/EntryType.swift"; sourceTree = "<group>"; };
+		ABE909F32FCE42E7AB6A7CF1 /* Models/Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/Enums.swift"; sourceTree = "<group>"; };
+		658164FD18B74D62A091985F /* Models/FieldConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/FieldConfig.swift"; sourceTree = "<group>"; };
+		05241C2C02D647829D362FC2 /* Models/LogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/LogEntry.swift"; sourceTree = "<group>"; };
+		4642F2B5B0C44F5496F7000A /* Models/Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/Measurement.swift"; sourceTree = "<group>"; };
+		AE7C89E288D94D54BDA41D73 /* Models/Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/Reminder.swift"; sourceTree = "<group>"; };
+		BF1A6892157544F68041CEF2 /* Services/ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/ExportService.swift"; sourceTree = "<group>"; };
+		75FCD0C45A7E435C91AFA86F /* Services/LLMPromptBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/LLMPromptBuilder.swift"; sourceTree = "<group>"; };
+		A68125050F1840BD91C8F88D /* Services/NotificationScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/NotificationScheduler.swift"; sourceTree = "<group>"; };
+		1CD2291A75D0448DAC3D7A77 /* Services/PhotoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/PhotoStore.swift"; sourceTree = "<group>"; };
+		1D67242CC4234BA1A723D10F /* Services/SeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/SeedData.swift"; sourceTree = "<group>"; };
+		FEC4A5FC803643C7870E056C /* Views/AddEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/AddEntryView.swift"; sourceTree = "<group>"; };
+		DCBF6777547647319C28863C /* Views/Components/EntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Components/EntryRowView.swift"; sourceTree = "<group>"; };
+		56B83831062C4349BF464F70 /* Views/Components/EntryTypeChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Components/EntryTypeChip.swift"; sourceTree = "<group>"; };
+		C92CEFA5708E427AB74294D3 /* Views/Components/FieldConfigRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Components/FieldConfigRowView.swift"; sourceTree = "<group>"; };
+		DDE6FBB4FBDF4EB487423FF4 /* Views/Components/ReminderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Components/ReminderRowView.swift"; sourceTree = "<group>"; };
+		59E951FFCD314E3ABB0AEE10 /* Views/ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/ContentView.swift"; sourceTree = "<group>"; };
+		931C2A6A1EDF4C0A80B6D51E /* Views/EntryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/EntryDetailView.swift"; sourceTree = "<group>"; };
+		DE0B021692574CDDB0D2088A /* Views/ExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/ExportView.swift"; sourceTree = "<group>"; };
+		17DEFD2CCB154031A15CF58C /* Views/FieldConfigDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/FieldConfigDetailView.swift"; sourceTree = "<group>"; };
+		99CE965737A5459890C94EB1 /* Views/FieldConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/FieldConfigView.swift"; sourceTree = "<group>"; };
+		4F0AB8B324734309AA9F5A57 /* Views/LogListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/LogListView.swift"; sourceTree = "<group>"; };
+		8B071B5D1E7E48D38D558A79 /* Views/PromptSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/PromptSettingsView.swift"; sourceTree = "<group>"; };
+		5FBE9FF751B44541BCEC11E6 /* Views/RemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/RemindersView.swift"; sourceTree = "<group>"; };
+		632535A26C724D2A88E756FC /* Views/SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/SettingsView.swift"; sourceTree = "<group>"; };
+		B4CA08A6495B421FBBAAA7CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets.xcassets"; sourceTree = "<group>"; };
+		94A34C1B97584CA6A7B376B6 /* Preview Content/Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Content/Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AFB83FA7DFE74D6FB64482FF /* HotTubLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = HotTubLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EE292D8F223941EDB0DFBA36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9720F2EBAD184560A92D72B8 = {
+			isa = PBXGroup;
+			children = (
+				3EA69057B8D34BFBAF24BEE9 /* HotTubLog */,
+				0E8039225EA045B596C1D1E4 /* Products */,
+			);
+			path = "";
+			sourceTree = "<group>";
+		};
+		3EA69057B8D34BFBAF24BEE9 /* HotTubLog */ = {
+			isa = PBXGroup;
+			children = (
+				60E7A08C61154CC5ACF6DCA3 /* Extensions/Color+Hex.swift */,
+				E183D5BEE94B419CB414EC72 /* HotTubLogApp.swift */,
+				331159B4786444CAAB567C6C /* Models/EntryType.swift */,
+				ABE909F32FCE42E7AB6A7CF1 /* Models/Enums.swift */,
+				658164FD18B74D62A091985F /* Models/FieldConfig.swift */,
+				05241C2C02D647829D362FC2 /* Models/LogEntry.swift */,
+				4642F2B5B0C44F5496F7000A /* Models/Measurement.swift */,
+				AE7C89E288D94D54BDA41D73 /* Models/Reminder.swift */,
+				BF1A6892157544F68041CEF2 /* Services/ExportService.swift */,
+				75FCD0C45A7E435C91AFA86F /* Services/LLMPromptBuilder.swift */,
+				A68125050F1840BD91C8F88D /* Services/NotificationScheduler.swift */,
+				1CD2291A75D0448DAC3D7A77 /* Services/PhotoStore.swift */,
+				1D67242CC4234BA1A723D10F /* Services/SeedData.swift */,
+				FEC4A5FC803643C7870E056C /* Views/AddEntryView.swift */,
+				DCBF6777547647319C28863C /* Views/Components/EntryRowView.swift */,
+				56B83831062C4349BF464F70 /* Views/Components/EntryTypeChip.swift */,
+				C92CEFA5708E427AB74294D3 /* Views/Components/FieldConfigRowView.swift */,
+				DDE6FBB4FBDF4EB487423FF4 /* Views/Components/ReminderRowView.swift */,
+				59E951FFCD314E3ABB0AEE10 /* Views/ContentView.swift */,
+				931C2A6A1EDF4C0A80B6D51E /* Views/EntryDetailView.swift */,
+				DE0B021692574CDDB0D2088A /* Views/ExportView.swift */,
+				17DEFD2CCB154031A15CF58C /* Views/FieldConfigDetailView.swift */,
+				99CE965737A5459890C94EB1 /* Views/FieldConfigView.swift */,
+				4F0AB8B324734309AA9F5A57 /* Views/LogListView.swift */,
+				8B071B5D1E7E48D38D558A79 /* Views/PromptSettingsView.swift */,
+				5FBE9FF751B44541BCEC11E6 /* Views/RemindersView.swift */,
+				632535A26C724D2A88E756FC /* Views/SettingsView.swift */,
+				B4CA08A6495B421FBBAAA7CF /* Assets.xcassets */,
+				94A34C1B97584CA6A7B376B6 /* Preview Content/Preview Assets.xcassets */,
+			);
+			path = HotTubLog;
+			sourceTree = "<group>";
+		};
+		0E8039225EA045B596C1D1E4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AFB83FA7DFE74D6FB64482FF /* HotTubLog.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D34FFF6EC014378A9214483 /* HotTubLog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40ADBD7DDAFF47A0A09B05FB /* Build configuration list for PBXNativeTarget "HotTubLog" */;
+			buildPhases = (
+				B6BBC577CA5347FC89DE9A39 /* Sources */,
+				EE292D8F223941EDB0DFBA36 /* Frameworks */,
+				7DEDC8572E164B3790152CF2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HotTubLog;
+			productName = HotTubLog;
+			productReference = AFB83FA7DFE74D6FB64482FF /* HotTubLog.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		11C621769BC44011AD5BC773 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					8D34FFF6EC014378A9214483 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = F5173124BE854852B6D062C4 /* Build configuration list for PBXProject "HotTubLog" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9720F2EBAD184560A92D72B8;
+			productRefGroup = 0E8039225EA045B596C1D1E4;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D34FFF6EC014378A9214483 /* HotTubLog */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7DEDC8572E164B3790152CF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BFD9979C00349A089AF84C2 /* Assets.xcassets in Resources */,
+				AAFE9777FA594496B7C712E3 /* Preview Content/Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B6BBC577CA5347FC89DE9A39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				001AC751D0D44C72A640E9FF /* Extensions/Color+Hex.swift in Sources */,
+				7E6DF9EC851C4C7498721EE3 /* HotTubLogApp.swift in Sources */,
+				AE4FBFD488844E1AB57B31F9 /* Models/EntryType.swift in Sources */,
+				33F99D7B0B234AE5B0286570 /* Models/Enums.swift in Sources */,
+				0C5D4856ED0640F2BEDEA6B5 /* Models/FieldConfig.swift in Sources */,
+				ECABB0B57B7F477B8C66FF99 /* Models/LogEntry.swift in Sources */,
+				3BB0D88191B84B838DDE8BA1 /* Models/Measurement.swift in Sources */,
+				BAF59C12E56F4E0AB6B62534 /* Models/Reminder.swift in Sources */,
+				7C041E66882949DDB60B427F /* Services/ExportService.swift in Sources */,
+				85BB3EFB77114D6697FD87AF /* Services/LLMPromptBuilder.swift in Sources */,
+				9265B9F1EE764746B02BF6AC /* Services/NotificationScheduler.swift in Sources */,
+				6F7175F1C8864FDD94653B8F /* Services/PhotoStore.swift in Sources */,
+				1AC3FF703ACD4D608D791284 /* Services/SeedData.swift in Sources */,
+				3DEBF840E8F5460381077095 /* Views/AddEntryView.swift in Sources */,
+				B1F4943063FA4376890D554C /* Views/Components/EntryRowView.swift in Sources */,
+				5DEF877CFD64483D9529E688 /* Views/Components/EntryTypeChip.swift in Sources */,
+				18948D14DB764FF9A90D8FFE /* Views/Components/FieldConfigRowView.swift in Sources */,
+				38FC54B463544C75BE157B6D /* Views/Components/ReminderRowView.swift in Sources */,
+				5F767CDDDA874D3B9E490E82 /* Views/ContentView.swift in Sources */,
+				95C05376A8F94EB6A4655F85 /* Views/EntryDetailView.swift in Sources */,
+				62B03BB541834EFA97F02E96 /* Views/ExportView.swift in Sources */,
+				0D65F35A8298427BB4B73EB9 /* Views/FieldConfigDetailView.swift in Sources */,
+				77876D78BA30403880278FB6 /* Views/FieldConfigView.swift in Sources */,
+				D42E204E22B44DA3B7084363 /* Views/LogListView.swift in Sources */,
+				131667A71D3146819D8FE72D /* Views/PromptSettingsView.swift in Sources */,
+				9195D561DC8C4A7B8D345315 /* Views/RemindersView.swift in Sources */,
+				15CB4A409F0A4EB8BDEEA2F8 /* Views/SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		50EEE436FE7B4E0383A22D33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		ECD08353591844CAAD208FDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		7023D001EBDF40D09F384509 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow access to select and store test strip photos.";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.periniz93.hot-tub-logger;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		69EE40147860411F8F8FAF09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow access to select and store test strip photos.";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.periniz93.hot-tub-logger;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F5173124BE854852B6D062C4 /* Build configuration list for PBXProject "HotTubLog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50EEE436FE7B4E0383A22D33 /* Debug */,
+				ECD08353591844CAAD208FDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40ADBD7DDAFF47A0A09B05FB /* Build configuration list for PBXNativeTarget "HotTubLog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7023D001EBDF40D09F384509 /* Debug */,
+				69EE40147860411F8F8FAF09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 11C621769BC44011AD5BC773 /* Project object */;
+}
