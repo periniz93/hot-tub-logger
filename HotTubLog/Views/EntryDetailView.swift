@@ -3,6 +3,8 @@ import SwiftUI
 struct EntryDetailView: View {
     let entry: LogEntry
 
+    @State private var showingEdit = false
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
@@ -15,6 +17,14 @@ struct EntryDetailView: View {
         }
         .navigationTitle(entry.entryType?.name ?? "Entry")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            Button("Edit") {
+                showingEdit = true
+            }
+        }
+        .sheet(isPresented: $showingEdit) {
+            AddEntryView(entryToEdit: entry)
+        }
     }
 
     private var header: some View {

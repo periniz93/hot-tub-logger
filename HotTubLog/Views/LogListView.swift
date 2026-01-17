@@ -2,6 +2,7 @@ import SwiftUI
 import SwiftData
 
 struct LogListView: View {
+    @Environment(\.modelContext) private var modelContext
     @Query(sort: \LogEntry.timestamp, order: .reverse) private var entries: [LogEntry]
     @Query(sort: \EntryType.name) private var entryTypes: [EntryType]
 
@@ -29,6 +30,7 @@ struct LogListView: View {
                                 EntryRowView(entry: entry)
                             }
                         }
+                        .onDelete(perform: deleteEntries)
                     }
                     .listStyle(.plain)
                 }
@@ -87,5 +89,13 @@ struct LogListView: View {
                 .foregroundColor(.secondary)
         }
         .padding(.top, 40)
+    }
+
+    private func deleteEntries(at offsets: IndexSet) {
+        for index in offsets {
+            let entry = filteredEntries[index]
+            modelContext.delete(entry)
+        }
+        try? modelContext.save()
     }
 }
