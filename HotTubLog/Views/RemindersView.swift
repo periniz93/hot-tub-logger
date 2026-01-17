@@ -7,6 +7,12 @@ struct RemindersView: View {
     var body: some View {
         NavigationStack {
             List {
+                Section {
+                    Text("Reminders are optional and use local notifications only.")
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+                }
+
                 ForEach(entryTypes) { entryType in
                     if let reminder = entryType.reminders.first {
                         ReminderRowView(reminder: reminder, entryTypeName: entryType.name)

@@ -30,6 +30,12 @@ struct ReminderRowView: View {
                 Text(reminder.displayText)
                     .font(.caption)
                     .foregroundColor(.secondary)
+
+                if let nextFireDate = reminder.nextFireDate {
+                    Text("Next reminder: \(formattedDate(nextFireDate))")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
             }
         }
         .padding(.vertical, 6)
@@ -48,5 +54,12 @@ struct ReminderRowView: View {
         Task {
             await NotificationScheduler.shared.updateSchedule(for: reminder, entryTypeName: entryTypeName)
         }
+    }
+
+    private func formattedDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        return formatter.string(from: date)
     }
 }

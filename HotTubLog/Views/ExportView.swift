@@ -13,6 +13,14 @@ struct ExportView: View {
         entries.filter { $0.timestamp >= startDate && $0.timestamp <= endDate }
     }
 
+    private var isRangeValid: Bool {
+        startDate <= endDate
+    }
+
+    private var canExport: Bool {
+        isRangeValid && !filteredEntries.isEmpty
+    }
+
     var body: some View {
         NavigationStack {
             Form {
@@ -22,16 +30,28 @@ struct ExportView: View {
                     Text("Entries: \(filteredEntries.count)")
                         .font(.caption)
                         .foregroundColor(.secondary)
+
+                    if !isRangeValid {
+                        Text("Start date must be before end date.")
+                            .font(.caption)
+                            .foregroundColor(.red)
+                    } else if filteredEntries.isEmpty {
+                        Text("No entries in this range.")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
                 }
 
                 Section("Export") {
                     Button("Export CSV") {
                         exportCSV()
                     }
+                    .disabled(!canExport)
 
                     Button("Export PDF") {
                         exportPDF()
                     }
+                    .disabled(!canExport)
 
                     if let exportURL {
                         ShareLink(item: exportURL) {
